@@ -1,6 +1,6 @@
 {
   "name": "overloading",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Define complex overloading strategies for functions.",
   "main": "index.js",
   "scripts": {

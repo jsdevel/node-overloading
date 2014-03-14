@@ -79,7 +79,10 @@ StrategySet.prototype.find = function(args){
   this.strategies.forEach(function(strategy){
     if(strategy.test(args))index = strategy.index;
   });
-  if(index === void 0)throw new Error('No matching overload was found for: '+args);
+  if(index === void 0)throw new Error(
+    'No matching overload was found for: '
+    + JSON.stringify(args, friendlyJSONReplacer)
+  );
   return index;
 };
 StrategySet.prototype.add = function(strategy){
