@@ -5,8 +5,8 @@ found for arguments.
 
 ##Example
 ````javascript
-var overload = require('overload');
-var fooOverloads = overload([
+var overloading = require('overloading');
+var fooOverloads = overloading([
   [Function],
   [String, String]
 ]); 
