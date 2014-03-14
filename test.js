@@ -30,7 +30,7 @@ describe('overloading', function(){
   it('returns an Overload object', function(){
     var overload = sut([['asdf', function(){}]]);
     overload.describe().should.equal('[["string","function"]]');
-    overload.handle.should.be.type('function');
+    overload.find.should.be.type('function');
   });
 
   describe('Overload', function(){
@@ -51,22 +51,22 @@ describe('overloading', function(){
       sut([]);
     });
 
-    describe('#handle', function(){
+    describe('#find', function(){
       it('fails if the arguments have no description', function(){
         assert.throws(function(){
-          overload.handle();
+          overload.find();
         });
       });
 
       it('can succeed', function(){
-        overload.handle({0:'asdf', 1:setTimeout, length: 2}).should.equal(0);
-        overload.handle(['asdf', new Function()]).should.equal(0);
-        overload.handle(['asdf']).should.equal(1);
-        overload.handle([new String(5)]).should.equal(1);
-        overload.handle([/asdf/, function(){}]).should.equal(2);
-        overload.handle([3, []]).should.equal(3);
-        overload.handle([new Date()]).should.equal(4);
-        overload.handle([]).should.equal(5);
+        overload.find({0:'asdf', 1:setTimeout, length: 2}).should.equal(0);
+        overload.find(['asdf', new Function()]).should.equal(0);
+        overload.find(['asdf']).should.equal(1);
+        overload.find([new String(5)]).should.equal(1);
+        overload.find([/asdf/, function(){}]).should.equal(2);
+        overload.find([3, []]).should.equal(3);
+        overload.find([new Date()]).should.equal(4);
+        overload.find([]).should.equal(5);
       });
     });
   });

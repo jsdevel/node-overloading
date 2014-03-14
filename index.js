@@ -46,12 +46,12 @@ function Overload(array, description){
 Overload.prototype.describe = function(){
   return this.description;
 };
-Overload.prototype.handle = function(array){
+Overload.prototype.find = function(array){
   var length = array.length;
   array = [].slice.call(array);
 
   if(length in this.strategySets){
-    return this.strategySets[length].handle(array);
+    return this.strategySets[length].find(array);
   }
 
   throw new Error('No strategy set was found for '+length+' argument[s].');
@@ -74,7 +74,7 @@ function StrategySet(length){
   this.length = length;
   this.strategies = [];
 }
-StrategySet.prototype.handle = function(args){
+StrategySet.prototype.find = function(args){
   var index;
   this.strategies.forEach(function(strategy){
     if(strategy.test(args))index = strategy.index;
