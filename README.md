@@ -12,8 +12,7 @@ var fooOverloads = overload([
 ]); 
 
 function foo(one, two){
-  var strategy = fooOverloads.find(arguments);
-  switch(strategy){
+  switch(fooOverloads.find(arguments)){
     case 0:one();break;
     case 1:console.log(one + two);break;
   }
